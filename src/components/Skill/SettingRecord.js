@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {Toast, ToastHeader, ToastBody, Button,  Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import axios from 'axios';
 
 
-const SettingRecord = (props) => {
+const SettingRecord = () => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -13,6 +14,19 @@ const SettingRecord = (props) => {
 
     const contentOnChange = event =>{
         setContent(event.target.value);
+    }
+
+    const saveRecord = () => {
+        axios.post("http://localhost:8080/api/v1/record",{
+            title: title,
+            content: content
+        }).then(()=>{
+            alert("저장이 완료되었습니다");
+            setTitle("");
+            setContent("");
+        }).catch(()=>{
+            alert("저장에 실패하였습니다");
+        })
     }
 
     return (
@@ -42,7 +56,7 @@ const SettingRecord = (props) => {
                     </Toast>
                 </div>
                 <div className = "preview-record">
-                    <Button color="primary" size="lg" block>Save</Button>
+                    <Button onClick={saveRecord} color="primary" size="lg" block>Save</Button>
                 </div>
             </Form>
 
