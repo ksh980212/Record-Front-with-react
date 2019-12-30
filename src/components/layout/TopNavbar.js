@@ -22,13 +22,16 @@ const TopNavbar = () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" className="ml-auto" >
         <NavbarBrand href="/">Record</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink to="/"></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/signup">Signup</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/ksh980212/PROFILE">GitHub</NavLink>

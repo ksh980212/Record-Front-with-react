@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Button, Toast, ToastBody, ToastHeader} from 'reactstrap';
 import axios from 'axios';
+import { Link} from 'react-router-dom';
 
 
 
@@ -15,16 +16,17 @@ const TodayRecord = () => {
             if(response.data.length === 0){
                 setData(
                     [
-                        {id:0, title:"Hello", content:"Welcome to Record App", createdDate: "2019-12-30T12:30", iconColor: "primary"},
-                        {id:1, title:"How to use Record?", content: "Go to Setting -> Record Setting", createdDate:"2019-12-30T12:30", iconColor:"success"},
-                        {id:2, title:"How to use Record?", content: "And you can record your record", createdDate:"2019-12-30T12:30", iconColor:"warning"},
-                        {id:3, title:"Contact me", content: "ksh980212@gmail.com", createdDate:"2019-12-30T12:30", iconColor:"info"}
+                        {id:1, title:"Hello", content:"Welcome to Record App", createdDate: "2019-12-30T12:30", iconColor: "primary"},
+                        {id:2, title:"How to use Record?", content: "Go to Record", createdDate:"2019-12-30T12:30", iconColor:"success"},
+                        {id:3, title:"How to use Record?", content: "And you can record your record", createdDate:"2019-12-30T12:30", iconColor:"warning"},
                     ]
                     )
             }
             else{
             setData(response.data);
             }
+        }).catch(()=>{
+
         })
     }
 
@@ -36,6 +38,8 @@ const TodayRecord = () => {
         axios.delete(`http://localhost:8080/api/v1/record?id=${param}`)
         .then(()=>{
             load()
+        }).catch(()=>{
+
         })
     }
 
@@ -61,6 +65,7 @@ const TodayRecord = () => {
       <div>
           <p id= "record-title">Record List</p>
           {recordList}
+          <p className="font-center"><Link to="/setting/record">Go to Record</Link></p>
       </div>
     );
   };
