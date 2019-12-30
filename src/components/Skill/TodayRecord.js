@@ -6,16 +6,15 @@ import axios from 'axios';
 
 const TodayRecord = () => {
 
-    const [data, setData] = useState([
-    ]);
+    const [data, setData] = useState([]);
 
     useEffect( () => {
-        axios.get("http://localhost:8080/api/v1/record")
+        axios.get("http://localhost:8080/api/v1/record?sort=id,desc")
         .then((response)=>{
             setData(response.data);
         }).catch(()=>{
         })
-    })
+    }, [])
 
     const recordList = data.map(todo => {
         return(
@@ -26,7 +25,7 @@ const TodayRecord = () => {
                     </ToastHeader>
                     <ToastBody>
                         {todo.content}
-                        <p>{todo.createdDate}</p>
+                        <p>{todo.createdDate.split("T")[0] +" "+ todo.createdDate.split("T")[1].substring(0, 8)}</p>
                     </ToastBody>
                 </Toast>
             </div>
