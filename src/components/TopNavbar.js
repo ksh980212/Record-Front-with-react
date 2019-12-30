@@ -31,7 +31,7 @@ const TopNavbar = () => {
               <NavLink to="/"></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to ="/">123</NavLink>
+              <NavLink href="https://github.com/ksh980212/PROFILE">GitHub</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -39,7 +39,7 @@ const TopNavbar = () => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                    <NavLink tag={Link} to="/setting/record">Book Setting</NavLink>
+                    <NavLink tag={Link} to="/setting/record">Record Setting</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

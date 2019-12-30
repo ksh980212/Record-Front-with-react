@@ -17,6 +17,7 @@ const SettingRecord = (props) => {
 
     return (
         <div>
+            <h3 id="setting-record-title">Record your record</h3>
             <Form>
                 <FormGroup>
                     <Label>Title</Label>
