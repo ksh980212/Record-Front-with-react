@@ -21,6 +21,11 @@ const TopNavbar = ({isLogined, changeLogoutState}) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const logout = () =>{
+    changeLogoutState();
+    window.location.reload(false);
+  }
+
   return (
     <div>
       <Navbar color="light" light expand="md" className="ml-auto" >
@@ -37,7 +42,7 @@ const TopNavbar = ({isLogined, changeLogoutState}) => {
                 isLogined ? <div></div>  : <NavItem><NavLink tag={Link} to="/signup">Signup</NavLink></NavItem>
               }
               {
-                isLogined ? <NavItem><NavLink onClick={changeLogoutState}>Logout</NavLink></NavItem> : <NavItem><NavLink tag={Link} to="/login">Login</NavLink></NavItem>
+                isLogined ? <NavItem><NavLink onClick={logout}>Logout</NavLink></NavItem> : <NavItem><NavLink tag={Link} to="/login">Login</NavLink></NavItem>
               }
            
   

@@ -15,7 +15,7 @@ const validateInputError = (param) =>{
 const Login = ({changeLoginState}) => {
 
     const cookies = new Cookies();
-    let history = useHistory();
+    const history = useHistory();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -50,7 +50,7 @@ const Login = ({changeLoginState}) => {
             history.push("/");
 
         }).catch(()=>{
-
+            alert("Check your input")
         })
     }
 

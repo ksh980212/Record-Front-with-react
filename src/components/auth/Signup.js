@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
+import { useHistory} from 'react-router-dom';
 
 const validateInputError = (param) =>{
     if(param.trim() === "" || param === undefined){
@@ -18,6 +19,7 @@ const checkPasswordisCorrect= (first, last) =>{
 
 const SignUp= () => {
 
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -61,6 +63,7 @@ const SignUp= () => {
             password: password
         }).then(()=>{
             alert("Signup Success");
+            history.push("/");
         }).catch(()=>{
 
         })

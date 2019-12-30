@@ -34,7 +34,7 @@ const TodayRecord = () => {
 
     useEffect( () => {
         load()
-    }, [cookies])
+    }, [])
 
     const deleteRecord = param => () =>{
         axios.delete(`http://localhost:8080/api/v1/record?id=${param}`)
