@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+import { useHistory} from 'react-router-dom';
 
 const validateInputError = (param) =>{
     if(param.trim() === "" || param === undefined){
@@ -9,14 +11,11 @@ const validateInputError = (param) =>{
     return false;
 }
 
-const checkPasswordisCorrect= (first, last) =>{
-    if(first !== last){
-        return true;
-    }
-    return false;
-}
 
-const Login = () => {
+const Login = ({changeLoginState}) => {
+
+    const cookies = new Cookies();
+    let history = useHistory();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -41,7 +40,18 @@ const Login = () => {
             return;
         }
 
-        alert("123");
+        axios.post("http://localhost:8080/auth/v1/login",{
+            email:email,
+            password:password
+        }).then((response)=>{
+
+            cookies.set("id", response.data, {path: "/"});
+            changeLoginState();
+            history.push("/");
+
+        }).catch(()=>{
+
+        })
     }
 
 
@@ -54,10 +64,10 @@ const Login = () => {
       </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Password</Label>
-        <Input type="password" onChange={passwordOnChange} value={password} placeholder="" />
+        <Input type="password" onChange={passwordOnChange} value={password} placeholder="********" />
       </FormGroup>
       
-      <Button block color="primary" onClick={userLoginButtonClick} >Submit</Button>
+      <Button block color="primary" onClick={userLoginButtonClick}>Login</Button>
     </Form>
   );
 }

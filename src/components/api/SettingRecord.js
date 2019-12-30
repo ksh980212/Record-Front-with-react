@@ -37,7 +37,7 @@ const SettingRecord = () => {
 
     return (
         <div>
-            <h3 id="setting-record-title">Record your record</h3>
+            <h3 className="font-center" id="setting-record-title">Record your record</h3>
             <Form onSubmit ={saveRecord}>
                 <FormGroup>
                     <Label>Title</Label>

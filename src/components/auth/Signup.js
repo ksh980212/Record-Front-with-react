@@ -77,14 +77,14 @@ const SignUp= () => {
       </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Password</Label>
-        <Input type="password" onChange={passwordOnChange} value={password} placeholder="" />
+        <Input type="password" onChange={passwordOnChange} value={password} placeholder="********" />
       </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Confirm Password</Label>
-        <Input type="password" onChange={confirmPasswordOnChange} value={confirmPassword} placeholder="" />
+        <Input type="password" onChange={confirmPasswordOnChange} value={confirmPassword} placeholder="********" />
       </FormGroup>
       
-      <Button block color="primary" onClick={userSignupButtonClick} >Submit</Button>
+      <Button block color="primary" onClick={userSignupButtonClick}>Sign Up</Button>
     </Form>
   );
 }

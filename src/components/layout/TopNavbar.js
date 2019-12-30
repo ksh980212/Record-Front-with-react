@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import {
   Collapse,
   Navbar,
@@ -15,7 +15,8 @@ import {
 
 import { Link} from 'react-router-dom';
 
-const TopNavbar = () => {
+const TopNavbar = ({isLogined, changeLogoutState}) => {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -30,12 +31,16 @@ const TopNavbar = () => {
             <NavItem>
               <NavLink to="/"></NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/signup">Signup</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/login">Login</NavLink>
-            </NavItem>
+            
+
+              {
+                isLogined ? <div></div>  : <NavItem><NavLink tag={Link} to="/signup">Signup</NavLink></NavItem>
+              }
+              {
+                isLogined ? <NavItem><NavLink onClick={changeLogoutState}>Logout</NavLink></NavItem> : <NavItem><NavLink tag={Link} to="/login">Login</NavLink></NavItem>
+              }
+           
+  
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Setting
