@@ -34,7 +34,7 @@ const TopNavbar = () => {
               <NavLink tag={Link} to="/signup">Signup</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/ksh980212/PROFILE">GitHub</NavLink>
+              <NavLink tag={Link} to="/login">Login</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>

@@ -16,11 +16,10 @@ const checkPasswordisCorrect= (first, last) =>{
     return false;
 }
 
-const SignUp= () => {
+const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
 
     const emailOnChange= (event) => {
         setEmail(event.target.value);
@@ -30,11 +29,7 @@ const SignUp= () => {
         setPassword(event.target.value);
     }
 
-    const confirmPasswordOnChange = (event) => {
-        setConfirmPassword(event.target.value);
-    }
-
-    const userSignupButtonClick = () => {
+    const userLoginButtonClick = () => {
 
         if(validateInputError(email)){
             alert("Enter your Email");
@@ -46,31 +41,13 @@ const SignUp= () => {
             return;
         }
 
-        if(validateInputError(confirmPassword)){
-            alert("Enter Password");
-            return;
-        }
-
-        if(checkPasswordisCorrect(password, confirmPassword)){
-            alert("Check your each password");
-            return;
-        }
-
-        axios.post("http://localhost:8080/auth/v1/signUp", {
-            email: email,
-            password: password
-        }).then(()=>{
-            alert("Signup Success");
-        }).catch(()=>{
-
-        })
-
+        alert("123");
     }
 
 
   return (
     <Form>
-        <p id= "record-title">Sign up</p>
+        <p id= "record-title">Login</p>
       <FormGroup>
         <Label for="exampleEmail">Email</Label>
         <Input type="email" onChange={emailOnChange} value={email} placeholder="Record@record.com" />
@@ -79,14 +56,10 @@ const SignUp= () => {
         <Label for="examplePassword">Password</Label>
         <Input type="password" onChange={passwordOnChange} value={password} placeholder="" />
       </FormGroup>
-      <FormGroup>
-        <Label for="examplePassword">Confirm Password</Label>
-        <Input type="password" onChange={confirmPasswordOnChange} value={confirmPassword} placeholder="" />
-      </FormGroup>
       
-      <Button block color="primary" onClick={userSignupButtonClick} >Submit</Button>
+      <Button block color="primary" onClick={userLoginButtonClick} >Submit</Button>
     </Form>
   );
 }
 
-export default SignUp;
+export default Login;
