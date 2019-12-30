@@ -1,3 +1,8 @@
+body{
+    font-family: 'TmonTium' !important;
+    font-size: 8rem;
+}
+
 .todo-list{
     width:30%;
     margin-left:35%;
@@ -6,6 +11,49 @@
     margin-bottom:10%;
 }
 
+@media screen and (max-width: 800px) {  
+    .todo-list{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        margin-top:10%;
+        margin-bottom:10%;
+    }
+}
+
 #todoList-toast {
     max-width: 100%;
+    text-align: center;
+}
+
+#record-title{
+    margin-left: 40%;
+    font-size: 1.5rem;
+    margin-bottom: 5%;
+}
+
+.preview-record{
+    margin-top: 10%;
+}
+
+#preview-toast-body{
+    min-height: 70px;
+}
+
+
+
+
+@font-face {
+    font-family: 'hanna';
+    src: url('../util/font/hanna.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'misang';
+    src: url('../util/font/misang.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TmonTium';
+    src: url('../util/font/TmonTium.ttf') format('truetype');
 }

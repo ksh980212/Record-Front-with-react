@@ -1,14 +1,23 @@
 import React from 'react'
-import Main from './Main';
+import TodayRecord from './Skill/TodayRecord';
+import SettingRecord from './Skill/SettingRecord';
+
 import TopNavbar from './TopNavbar';
+import { Route, Switch} from 'react-router-dom';
+
 
 const App = () => {
     return (
         <div>
             <TopNavbar />
             <div className="todo-list">
-                <Main />
+                <Switch>
+                    <Route exact path="/" component={TodayRecord} />
+                    <Route path="/setting/record" component={SettingRecord} />
+                </Switch>
             </div>
+
+ 
         </div>
     )
 }
