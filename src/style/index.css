@@ -44,18 +44,6 @@ body{
     margin-bottom: 20px;
 }
 
-
-
-@font-face {
-    font-family: 'hanna';
-    src: url('../util/font/hanna.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'misang';
-    src: url('../util/font/misang.ttf') format('truetype');
-}
-
 @font-face {
     font-family: 'TmonTium';
     src: url('../util/font/TmonTium.ttf') format('truetype');

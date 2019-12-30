@@ -1,8 +1,8 @@
 import React from 'react'
-import TodayRecord from './Skill/TodayRecord';
-import SettingRecord from './Skill/SettingRecord';
+import TodayRecord from './api/TodayRecord';
+import SettingRecord from './api/SettingRecord';
 
-import TopNavbar from './TopNavbar';
+import TopNavbar from './layout/TopNavbar';
 import { Route, Switch} from 'react-router-dom';
 
 
