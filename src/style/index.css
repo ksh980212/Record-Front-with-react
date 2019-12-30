@@ -44,6 +44,12 @@ body{
     margin-bottom: 20px;
 }
 
+.created-date-font{
+    padding-top: 20px;
+    padding-bottom: 0;
+    color:gray;
+}
+
 @font-face {
     font-family: 'TmonTium';
     src: url('../util/font/TmonTium.ttf') format('truetype');
