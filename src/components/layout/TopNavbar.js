@@ -12,10 +12,10 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-
 import { Link} from 'react-router-dom';
 
 const TopNavbar = ({isLogined, changeLogoutState}) => {
+
 
   const [isOpen, setIsOpen] = useState(false);
 

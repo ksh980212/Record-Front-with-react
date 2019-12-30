@@ -2,15 +2,17 @@ import React, {useState, useEffect} from 'react'
 import { Button, Toast, ToastBody, ToastHeader} from 'reactstrap';
 import axios from 'axios';
 import { Link} from 'react-router-dom';
-
-
+import Cookies from 'universal-cookie';
 
 const TodayRecord = () => {
 
+    const cookies = new Cookies();
     const [data, setData] = useState([]);
 
+    const user = cookies.get("id") ? cookies.get("id") : 0;
+
     const load= () => {
-        axios.get("http://localhost:8080/api/v1/record?sort=id,desc")
+        axios.get(`http://localhost:8080/api/v1/record?user=${user}&sort=id,desc`)
         .then((response)=>{
 
             if(response.data.length === 0){
@@ -32,7 +34,7 @@ const TodayRecord = () => {
 
     useEffect( () => {
         load()
-    }, [])
+    }, [cookies])
 
     const deleteRecord = param => () =>{
         axios.delete(`http://localhost:8080/api/v1/record?id=${param}`)

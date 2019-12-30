@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import {Col, Toast, ToastHeader, ToastBody, Button,  Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 
 const SettingRecord = () => {
+
+    const cookies = new Cookies();
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -22,10 +25,17 @@ const SettingRecord = () => {
     }
 
     const saveRecord = () => {
+
+        if(!cookies.get("id")){
+            alert("로그인 후 이용 가능합니다");
+            return;
+        }
+
         axios.post("http://localhost:8080/api/v1/record",{
             title: title,
             content: content,
-            iconColor : color
+            iconColor : color,
+            user: cookies.get("id")
         }).then(()=>{
             alert("저장이 완료되었습니다");
             setTitle("");

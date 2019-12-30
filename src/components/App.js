@@ -19,6 +19,7 @@ const App = () => {
     }
 
     const changeLogoutState = () => {
+        cookies.remove("id", {path: "/"});
         setIsLogined(false);
     }
     
