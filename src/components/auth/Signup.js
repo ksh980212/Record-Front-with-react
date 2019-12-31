@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import axios from 'axios';
 import { useHistory} from 'react-router-dom';
 
@@ -23,6 +23,7 @@ const SignUp= () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [role, setRole] = useState('guest');
 
     const emailOnChange= (event) => {
         setEmail(event.target.value);
@@ -60,12 +61,13 @@ const SignUp= () => {
 
         axios.post("http://localhost:8080/auth/v1/signUp", {
             email: email,
-            password: password
+            password: password,
+            role:role
         }).then(()=>{
             alert("Signup Success");
             history.push("/");
         }).catch(()=>{
-
+            alert("Error")
         })
 
     }
@@ -81,6 +83,7 @@ const SignUp= () => {
       <FormGroup>
         <Label for="examplePassword">Password</Label>
         <Input type="password" onChange={passwordOnChange} value={password} placeholder="********" />
+        <FormText>at least 8 length & mix the letters + numbers</FormText>
       </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Confirm Password</Label>
