@@ -49,7 +49,7 @@ const TodayRecord = () => {
         return(
             <div key ={todo.id} className="p-3 my-2 rounded">
                 <Toast id="todoList-toast">
-                    <ToastHeader icon={todo.iconColor}>
+                    <ToastHeader icon={todo.iconColor.toLowerCase()}>
                         {todo.title}
                     </ToastHeader>
                     <ToastBody id = "toast-body">
